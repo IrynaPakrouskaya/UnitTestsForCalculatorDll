@@ -21,15 +21,15 @@ namespace UnitTestsCalculator
         [TestMethod]
         public void sinMSTestString()
         {
-            double resultCos = testCalculator.Sin(inputNumberString);
-            Assert.AreEqual(Math.Sin(Convert.ToDouble(inputNumberString)), resultCos);
+            double actualResult = testCalculator.Sin(inputNumberString);
+            Assert.AreEqual(Math.Sin(Convert.ToDouble(inputNumberString)), actualResult);
         }
 
         [TestMethod]
         public void sinMSTestDouble()
         {
-            double resultCos = testCalculator.Sin(inputNumberDouble);
-            Assert.AreEqual(Math.Sin(inputNumberDouble), resultCos);
+            double actualResult = testCalculator.Sin(inputNumberDouble);
+            Assert.AreEqual(Math.Sin(inputNumberDouble), actualResult);
         }
 
         [TestCleanup]
