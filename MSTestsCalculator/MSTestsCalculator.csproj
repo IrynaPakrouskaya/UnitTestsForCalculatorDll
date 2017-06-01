@@ -63,6 +63,7 @@
     <Compile Include="MSTest_Pow.cs" />
     <Compile Include="MSTest_SIn.cs" />
     <Compile Include="MSTest_Sqrt.cs" />
+    <Compile Include="MSTest_Sub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
