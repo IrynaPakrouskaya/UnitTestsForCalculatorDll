@@ -21,14 +21,14 @@ namespace UnitTestsCalculator
         }        
                 
         [TestMethod]
-        public void absTestString(string inputNumberStringFormat)
+        public void absTestString()
         {
             double absResult = testCalculator.Abs(inputNumberStringFormat);
             Assert.AreEqual(Math.Abs(Convert.ToDouble(inputNumberStringFormat)), absResult);         
         }
 
         [TestMethod]
-        public void absTestDouble(double inputNumberDoubleFormat)
+        public void absTestDouble()
         {
             double absResult = testCalculator.Abs(inputNumberDoubleFormat);
             Assert.AreEqual(Math.Abs(inputNumberDoubleFormat), absResult);
