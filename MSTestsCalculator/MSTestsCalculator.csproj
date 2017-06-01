@@ -58,6 +58,7 @@
     <Compile Include="MSTest_Add.cs" />
     <Compile Include="MSTest_Divide.cs" />
     <Compile Include="MSTest_IsNegative.cs" />
+    <Compile Include="MSTest_IsPositive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
