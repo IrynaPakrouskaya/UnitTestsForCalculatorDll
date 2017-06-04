@@ -34,7 +34,18 @@ namespace NUnitTestsCalculator
         public void AbsNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Abs(num);
-            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
+            try
+            {
+                Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Unable to convert {0} to Double", expectedResult);
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("{0} is outside the range of a Double.", expectedResult);
+            }            
         }
 
         [OneTimeTearDown]
