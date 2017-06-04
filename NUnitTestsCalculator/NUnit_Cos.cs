@@ -8,39 +8,39 @@ using NUnit.Framework;
 namespace NUnitTestsCalculator
 {
     [TestFixture]
-    public class Abs
+    public class NUnit_Cos
     {
         private CSharpCalculator.Calculator testCalculator;
-        
+
         [OneTimeSetUpAttribute]
         public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
         }
 
-        [TestCase (-8.3, 8.3)]
-        [TestCase(0, 0)]
-        [TestCase(2, 2)]        
-        public void AbsNUnitTestDouble(double num, double expectedResult)
-        {            
-            double actualResult = testCalculator.Abs(num);            
+        [TestCase(1.2, 0.3624)]
+        [TestCase(-3, -0.9899)]
+        [TestCase(0, 1)]
+        public void CosNUnitTestDouble(double num, double expectedResult)
+        {
+            double actualResult = testCalculator.Cos(num);
             Assert.AreEqual(expectedResult, actualResult, 0.0001);
         }
 
-        [TestCase("-8.3", "8.3")]
-        [TestCase("0", "0")]
-        [TestCase("2", "2")]
+        [TestCase("1.2", "0.3624")]
+        [TestCase("-3", "0.9899")]
+        [TestCase("0", "1")]
         [TestCase("test", "test")]
-        public void AbsNUnitTestString(string num, string expectedResult)
+        public void CosNUnitTestString(string num, string expectedResult)
         {
-            double actualResult = testCalculator.Abs(num);
+            double actualResult = testCalculator.Cos(num);
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
         }
 
-        [OneTimeTearDown]
+        [OneTimeTearDownAttribute]
         public void CleanupData()
         {
             testCalculator = null;
-        }    
+        }
     }
 }
