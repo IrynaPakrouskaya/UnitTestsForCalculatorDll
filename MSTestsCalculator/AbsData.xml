@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataSet>
-  <TestCase>
-    <InputParameter>-3,4</InputParameter>
-    <Result>3,4</Result>
-  </TestCase>
-  <TestCase>
-    <InputParameter>0</InputParameter>
-    <Result>0</Result>
-  </TestCase>
-  <TestCase>
-    <InputParameter>2</InputParameter>
-    <Result>2</Result>
-  </TestCase>
+	<AbsMethodDouble>
+		<InputParameter>-3,4</InputParameter>
+		<Result>3,4</Result>
+	</AbsMethodDouble>
+	<AbsMethodDouble>
+		<InputParameter>0</InputParameter>
+		<Result>0</Result>
+	</AbsMethodDouble>
+	<AbsMethodDouble>
+		<InputParameter>2</InputParameter>
+		<Result>2</Result>		
+	</AbsMethodDouble>
+	<AbsMethodString>
+		<InputParameter>-7,4</InputParameter>
+		<Result>7,4</Result>
+	</AbsMethodString>
+	<AbsMethodString>
+		<InputParameter>0</InputParameter>
+		<Result>0</Result>
+	</AbsMethodString>
+	<AbsMethodString>
+		<InputParameter>5</InputParameter>
+		<Result>5</Result>
+	</AbsMethodString>
+		<AbsMethodString>
+		<InputParameter>test</InputParameter>
+		<Result>NaN</Result>
+	</AbsMethodString>
 </DataSet>

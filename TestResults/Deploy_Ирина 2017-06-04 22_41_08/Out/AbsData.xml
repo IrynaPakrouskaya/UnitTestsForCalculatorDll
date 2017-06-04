@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSet>
+  <TestCase>
+    <InputParameter>-3,4</InputParameter>
+    <Result>3,4</Result>
+  </TestCase>
+  <TestCase>
+    <InputParameter>0</InputParameter>
+    <Result>0</Result>
+  </TestCase>
+  <TestCase>
+    <InputParameter>2</InputParameter>
+    <Result>2</Result>
+  </TestCase>
+</DataSet>

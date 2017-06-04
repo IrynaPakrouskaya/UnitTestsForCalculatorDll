@@ -26,13 +26,24 @@ namespace UnitTestsCalculator
         
         [TestMethod]
         [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
-        [DataSource("AbsData")]    
+        [DataSource("AbsDoubleData")]    
         public void AbsMSTestDouble()
         {
-            double input = Double.Parse(context.DataRow["InputParameter"].ToString());
-            double expectedResult = Double.Parse(context.DataRow["Result"].ToString());
+            double input = Convert.ToDouble(context.DataRow["InputParameter"]);
+            double expectedResult = Convert.ToDouble(context.DataRow["Result"]);
             double actualResult = testCalculator.Abs(input);
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
+        [DataSource("AbsStringData")]
+        public void AbsMSTestString()
+        {
+            string input = context.DataRow["InputParameter"].ToString();
+            string expectedResult = context.DataRow["Result"].ToString();
+            double actualResult = testCalculator.Abs(input);
+            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult);
         }
 
         [TestCleanup]
