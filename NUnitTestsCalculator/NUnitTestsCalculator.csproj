@@ -51,6 +51,7 @@
     <Compile Include="NUnit_Abs.cs" />
     <Compile Include="NUnit_Add.cs" />
     <Compile Include="NUnit_Cos.cs" />
+    <Compile Include="NUnit_Divide.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
