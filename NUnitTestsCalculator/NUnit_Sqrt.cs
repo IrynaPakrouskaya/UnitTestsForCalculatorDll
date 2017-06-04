@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using System.Diagnostics;
 
 namespace NUnitTestsCalculator
 {
@@ -12,10 +13,11 @@ namespace NUnitTestsCalculator
     {
         private CSharpCalculator.Calculator testCalculator;
 
-        [OneTimeSetUpAttribute]
+        [SetUp]
         public void SetUpData()
         {
-            testCalculator = new CSharpCalculator.Calculator();
+            testCalculator = new CSharpCalculator.Calculator();            
+            Console.WriteLine("test");
         }
 
         [TestCase(2.7, 1.6431)]
@@ -50,7 +52,7 @@ namespace NUnitTestsCalculator
             }
         }
 
-        [OneTimeTearDownAttribute]
+        [TearDown]
         public void CleanupData()
         {
             testCalculator = null;

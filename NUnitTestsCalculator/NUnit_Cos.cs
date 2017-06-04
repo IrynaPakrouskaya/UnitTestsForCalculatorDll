@@ -12,7 +12,7 @@ namespace NUnitTestsCalculator
     {
         private CSharpCalculator.Calculator testCalculator;
 
-        [OneTimeSetUpAttribute]
+        [SetUp]
         public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
@@ -28,7 +28,7 @@ namespace NUnitTestsCalculator
         }
 
         [TestCase("1.2", "0.3624")]
-        [TestCase("-3", "0.9899")]
+        [TestCase("-3", "-0.9899")]
         [TestCase("0", "1")]
         [TestCase("test", "NaN")]
         public void CosNUnitTestString(string num, string expectedResult)
@@ -48,7 +48,7 @@ namespace NUnitTestsCalculator
             }  
         }
 
-        [OneTimeTearDownAttribute]
+        [TearDown]
         public void CleanupData()
         {
             testCalculator = null;

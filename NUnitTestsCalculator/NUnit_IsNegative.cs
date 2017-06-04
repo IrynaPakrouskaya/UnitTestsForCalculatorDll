@@ -12,7 +12,7 @@ namespace NUnitTestsCalculator
     {
         private CSharpCalculator.Calculator testCalculator;
 
-        [OneTimeSetUpAttribute]
+        [SetUp]
         public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
@@ -36,7 +36,7 @@ namespace NUnitTestsCalculator
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [OneTimeTearDownAttribute]
+        [TearDown]
         public void CleanupData()
         {
             testCalculator = null;
