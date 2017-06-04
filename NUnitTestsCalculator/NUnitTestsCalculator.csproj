@@ -58,6 +58,7 @@
     <Compile Include="NUnit_Pow.cs" />
     <Compile Include="NUnit_Sin.cs" />
     <Compile Include="NUnit_Sqrt.cs" />
+    <Compile Include="NUnit_Sub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
