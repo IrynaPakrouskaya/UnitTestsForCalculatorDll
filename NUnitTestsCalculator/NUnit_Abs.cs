@@ -30,7 +30,7 @@ namespace NUnitTestsCalculator
         [TestCase("-8.3", "8.3")]
         [TestCase("0", "0")]
         [TestCase("2", "2")]
-        [TestCase("test", "test")]
+        [TestCase("test", "NaN")]
         public void AbsNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Abs(num);

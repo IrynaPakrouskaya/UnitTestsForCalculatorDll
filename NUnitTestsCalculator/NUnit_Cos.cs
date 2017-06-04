@@ -30,7 +30,7 @@ namespace NUnitTestsCalculator
         [TestCase("1.2", "0.3624")]
         [TestCase("-3", "0.9899")]
         [TestCase("0", "1")]
-        [TestCase("test", "test")]
+        [TestCase("test", "NaN")]
         public void CosNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Cos(num);
