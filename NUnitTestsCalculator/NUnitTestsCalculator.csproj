@@ -53,6 +53,8 @@
     <Compile Include="NUnit_Cos.cs" />
     <Compile Include="NUnit_Divide.cs" />
     <Compile Include="NUnit_IsNegative.cs" />
+    <Compile Include="NUnit_IsPositive.cs" />
+    <Compile Include="NUnit_Multiply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
