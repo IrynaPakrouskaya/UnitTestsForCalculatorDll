@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Data;
 
 namespace UnitTestsCalculator
 {
@@ -7,37 +8,37 @@ namespace UnitTestsCalculator
     public class MSTest_Abs
     {
         private CSharpCalculator.Calculator testCalculator;
-        private string inputNumberStringFormat;
-        private double inputNumberDoubleFormat;
+
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        }   
 
         [TestInitialize]
         public void SetUpData()
         {
-            testCalculator = new CSharpCalculator.Calculator();
-            inputNumberStringFormat = "-8";
-            inputNumberDoubleFormat = -3.2;
+            testCalculator = new CSharpCalculator.Calculator();                     
         }
 
+        
         [TestMethod]
-        public void AbsMSTestString()
-        {
-            double absResult = testCalculator.Abs(inputNumberStringFormat);
-            Assert.AreEqual(Math.Abs(Convert.ToDouble(inputNumberStringFormat)), absResult);
-        }
-
-        [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
+        [DataSource("AbsData")]    
         public void AbsMSTestDouble()
         {
-            double absResult = testCalculator.Abs(inputNumberDoubleFormat);
-            Assert.AreEqual(Math.Abs(inputNumberDoubleFormat), absResult);
+            double input = Double.Parse(context.DataRow["InputParameter"].ToString());
+            double expectedResult = Double.Parse(context.DataRow["Result"].ToString());
+            double actualResult = testCalculator.Abs(input);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestCleanup]
         public void CleanupData()
         {
-            testCalculator = null;
-            inputNumberStringFormat = null;
-            inputNumberDoubleFormat = 0;
+            testCalculator = null;            
         }
     }
 }
