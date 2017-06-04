@@ -13,7 +13,7 @@ namespace UnitTestsCalculator
         private double inputNumber2Double;
 
         [TestInitialize]
-        public void setUpData()
+        public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             inputNumber1String = "9.7";
@@ -23,7 +23,7 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void powMSTestString()
+        public void PowMSTestString()
         {
             double resultCos = testCalculator.Pow(inputNumber1String, inputNumber2String);
             double expectedResult = Math.Pow(Convert.ToDouble(inputNumber1String), Convert.ToDouble(inputNumber2String));
@@ -31,14 +31,14 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void powMSTestDouble()
+        public void PowMSTestDouble()
         {
             double resultCos = testCalculator.Pow(inputNumber1Double, inputNumber2Double);
             Assert.AreEqual(Math.Pow(inputNumber1Double, inputNumber2Double), resultCos);
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             inputNumber1String = null;

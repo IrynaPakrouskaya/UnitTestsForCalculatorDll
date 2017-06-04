@@ -11,7 +11,7 @@ namespace UnitTestsCalculator
         private double inputNumberDouble;
 
         [TestInitialize]
-        public void setUpData()
+        public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             inputNumberString = "90.7";
@@ -19,21 +19,21 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void cosTestString()
+        public void CosMSTestString()
         {
             double resultCos = testCalculator.Cos(inputNumberString);
             Assert.AreEqual(Math.Cos(Convert.ToDouble(inputNumberString)), resultCos);
         }
 
         [TestMethod]
-        public void cosTestDouble()
+        public void CosMSTestDouble()
         {
             double resultCos = testCalculator.Cos(inputNumberDouble);
             Assert.AreEqual(Math.Cos(inputNumberDouble), resultCos);
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             inputNumberDouble = 0;

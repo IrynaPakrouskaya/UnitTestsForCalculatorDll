@@ -11,7 +11,7 @@ namespace UnitTestsCalculator
         private double number2Double;
 
         [TestInitialize]
-        public void setUpData()
+        public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             number1Double = 0.8;
@@ -19,7 +19,7 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void multiplyTestDouble()
+        public void MultiplyMSTestDouble()
         {
             double resultDivide = testCalculator.Multiply(number1Double, number2Double);
             double expectedResult = number1Double * number2Double;
@@ -27,7 +27,7 @@ namespace UnitTestsCalculator
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             number1Double = 0;

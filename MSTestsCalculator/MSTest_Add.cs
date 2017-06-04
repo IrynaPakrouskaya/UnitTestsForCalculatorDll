@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTestsCalculator
 {
     [TestClass]
-    public class MSTest_Sub
+    public class MSTest_Add
     {
         private CSharpCalculator.Calculator testCalculator;
         private string inputNumber1StringFormat;
@@ -23,23 +23,23 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void SubMSTestString()
+        public void AddMSTestString()
         {
-            double actualResult = testCalculator.Sub(inputNumber1StringFormat, inputNumber2StringFormat);
-            double expectedResult = Convert.ToDouble(inputNumber1StringFormat) - Convert.ToDouble(inputNumber2StringFormat);
-            Assert.AreEqual(expectedResult, actualResult);
+            double addResult = testCalculator.Add(inputNumber1StringFormat, inputNumber2StringFormat);
+            double expectedResult = Convert.ToDouble(inputNumber1StringFormat) + Convert.ToDouble(inputNumber2StringFormat);
+            Assert.AreEqual(expectedResult, addResult);
         }
 
         [TestMethod]
-        public void SubMSTestDouble()
+        public void AddMSTestDouble()
         {
-            double actualResult = testCalculator.Sub(inputNumber1DoubleFormat, inputNumber2DoubleFormat);
-            double expectedResult = inputNumber1DoubleFormat - inputNumber2DoubleFormat;
-            Assert.AreEqual(expectedResult, actualResult);
+            double addResult = testCalculator.Add(inputNumber1DoubleFormat, inputNumber2DoubleFormat);
+            double expectedResult = inputNumber1DoubleFormat + inputNumber2DoubleFormat;
+            Assert.AreEqual(expectedResult, addResult);
         }
 
         [TestCleanup]
-        public void ClenupData()
+        public void CleanupData()
         {
             testCalculator = null;
             inputNumber1StringFormat = null;

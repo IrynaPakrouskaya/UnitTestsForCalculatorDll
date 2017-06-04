@@ -11,7 +11,7 @@ namespace UnitTestsCalculator
         private double inputNumberDouble;
 
         [TestInitialize]
-        public void setUpData()
+        public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             inputNumberString = "90.7";
@@ -19,21 +19,21 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void sinMSTestString()
+        public void SinMSTestString()
         {
             double actualResult = testCalculator.Sin(inputNumberString);
             Assert.AreEqual(Math.Sin(Convert.ToDouble(inputNumberString)), actualResult);
         }
 
         [TestMethod]
-        public void sinMSTestDouble()
+        public void SinMSTestDouble()
         {
             double actualResult = testCalculator.Sin(inputNumberDouble);
             Assert.AreEqual(Math.Sin(inputNumberDouble), actualResult);
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             inputNumberDouble = 0;

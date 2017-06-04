@@ -11,7 +11,7 @@ namespace UnitTestsCalculator
         private double inputNumberDouble;
 
         [TestInitialize]
-        public void setUpData()
+        public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             inputNumberString = "90.7";
@@ -19,21 +19,21 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void sqrtMSTestString()
+        public void SqrtMSTestString()
         {
             double actualResult = testCalculator.Sqrt(inputNumberString);
             Assert.AreEqual(Math.Sqrt(Convert.ToDouble(inputNumberString)), actualResult);
         }
 
         [TestMethod]
-        public void sqrtMSTestDouble()
+        public void SqrtMSTestDouble()
         {
             double actualResult = testCalculator.Sqrt(inputNumberDouble);
             Assert.AreEqual(Math.Sqrt(inputNumberDouble), actualResult);
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             inputNumberDouble = 0;

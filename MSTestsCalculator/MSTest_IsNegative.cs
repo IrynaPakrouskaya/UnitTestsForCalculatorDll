@@ -11,7 +11,7 @@ namespace UnitTestsCalculator
         private double numberDouble;
 
         [TestInitialize]
-        public void setupData()
+        public void SetupData()
         {
             testCalculator = new CSharpCalculator.Calculator();
             numberString = "-8.9";
@@ -19,19 +19,19 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        public void isNegativeMSTestString()
+        public void IsNegativeMSTestString()
         {                      
             Assert.IsTrue(testCalculator.isNegative(numberString));
         }
 
         [TestMethod]
-        public void isNegativeMSTestDouble()
+        public void IsNegativeMSTestDouble()
         {
             Assert.IsTrue(testCalculator.isNegative(numberDouble));
         }
 
         [TestCleanup]
-        public void cleanupData()
+        public void CleanupData()
         {
             testCalculator = null;
             numberString = null;
