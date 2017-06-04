@@ -56,6 +56,7 @@
     <Compile Include="NUnit_IsPositive.cs" />
     <Compile Include="NUnit_Multiply.cs" />
     <Compile Include="NUnit_Pow.cs" />
+    <Compile Include="NUnit_Sin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
