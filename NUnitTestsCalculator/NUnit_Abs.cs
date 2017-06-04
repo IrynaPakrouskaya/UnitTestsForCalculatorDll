@@ -10,17 +10,39 @@ namespace NUnitTestsCalculator
     [TestFixture]
     public class Abs
     {
-        [Test]
-        public void testAbsNUnit()
+        private CSharpCalculator.Calculator testCalculator;
+        private string inputNumberStringFormat;
+        private double inputNumberDoubleFormat;
+
+        [OneTimeSetUpAttribute]
+        public void SetUpData()
         {
-            //Arrange
-            CSharpCalculator.Calculator testCalculator = new CSharpCalculator.Calculator();
-
-            //Act
-            double absResult = testCalculator.Abs("-2");
-
-            //Assert
-            Assert.AreEqual(2, absResult);
+            testCalculator = new CSharpCalculator.Calculator();
         }
+
+        [TestCase (-8.3, 8.3)]
+        [TestCase(0, 0)]
+        [TestCase(2, 2)]        
+        public void AbsNUnitTestDouble(double num, double expectedResult)
+        {            
+            double actualResult = testCalculator.Abs(num);            
+            Assert.AreEqual(expectedResult, actualResult, 0.0001);
+        }
+
+        [TestCase("-8.3", "8.3")]
+        [TestCase("0", "0")]
+        [TestCase("2", "2")]
+        [TestCase("test", "test")]
+        public void AbsNUnitTestString(string num, string expectedResult)
+        {
+            double actualResult = testCalculator.Abs(num);
+            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
+        }
+
+        [OneTimeTearDown]
+        public void CleanupData()
+        {
+            testCalculator = null;
+        }    
     }
 }
