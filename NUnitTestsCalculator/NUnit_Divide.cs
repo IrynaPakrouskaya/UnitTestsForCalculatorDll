@@ -20,7 +20,7 @@ namespace NUnitTestsCalculator
 
         [TestCase(1.2, 2.3, 0.5217)]
         [TestCase(-3, -2.5, 1.2)]
-        [TestCase(7, 0, Double.PositiveInfinity)]
+        [TestCase(7, 0, Double.NaN)]
         public void DivideNUnitTestDouble(double num1, double num2, double expectedResult)
         {
             double actualResult = testCalculator.Divide(num1, num2);

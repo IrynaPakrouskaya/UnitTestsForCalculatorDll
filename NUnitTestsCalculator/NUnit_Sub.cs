@@ -33,19 +33,8 @@ namespace NUnitTestsCalculator
         [TestCase("test", "test", "NaN")]
         public void SubNUnitTestString(string num1, string num2, string expectedResult)
         {
-            double actualResult = testCalculator.Sub(num1, num2);
-            try
-            {
-                Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Unable to convert {0} to Double", expectedResult);
-            }
-            catch (OverflowException)
-            {
-                Console.WriteLine("{0} is outside the range of a Double.", expectedResult);
-            }
+            double actualResult = testCalculator.Sub(num1, num2);           
+            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);           
         }
 
         [TearDown]

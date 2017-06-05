@@ -22,7 +22,6 @@ namespace UnitTestsCalculator
         {
             testCalculator = new CSharpCalculator.Calculator();                     
         }
-
         
         [TestMethod]
         [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
