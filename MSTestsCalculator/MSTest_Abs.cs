@@ -24,7 +24,7 @@ namespace UnitTestsCalculator
         }
         
         [TestMethod]
-        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
+       
         [DataSource("AbsDoubleData")]    
         public void AbsMSTestDouble()
         {
@@ -35,7 +35,7 @@ namespace UnitTestsCalculator
         }
 
         [TestMethod]
-        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\AbsData.xml")]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
         [DataSource("AbsStringData")]
         public void AbsMSTestString()
         {

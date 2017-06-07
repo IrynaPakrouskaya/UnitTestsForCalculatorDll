@@ -6,46 +6,50 @@ namespace UnitTestsCalculator
     [TestClass]
     public class MSTest_Add
     {
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
+
         private CSharpCalculator.Calculator testCalculator;
-        private string inputNumber1StringFormat;
-        private string inputNumber2StringFormat;
-        private double inputNumber1DoubleFormat;
-        private double inputNumber2DoubleFormat;
 
         [TestInitialize]
         public void SetUpData()
         {
             testCalculator = new CSharpCalculator.Calculator();
-            inputNumber1StringFormat = "2.1";
-            inputNumber2StringFormat = "-3";
-            inputNumber1DoubleFormat = 2.4;
-            inputNumber2DoubleFormat = -5;
         }
 
         [TestMethod]
-        public void AddMSTestString()
-        {
-            double addResult = testCalculator.Add(inputNumber1StringFormat, inputNumber2StringFormat);
-            double expectedResult = Convert.ToDouble(inputNumber1StringFormat) + Convert.ToDouble(inputNumber2StringFormat);
-            Assert.AreEqual(expectedResult, addResult);
-        }
-
-        [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("AddDoubleData")]   
         public void AddMSTestDouble()
         {
-            double addResult = testCalculator.Add(inputNumber1DoubleFormat, inputNumber2DoubleFormat);
-            double expectedResult = inputNumber1DoubleFormat + inputNumber2DoubleFormat;
-            Assert.AreEqual(expectedResult, addResult);
+            double num1 = Convert.ToDouble(context.DataRow["numberOne"]);
+            double num2 = Convert.ToDouble(context.DataRow["numberTwo"]);
+            double expectedResult = Convert.ToDouble(context.DataRow["result"]);
+            double actualResult = testCalculator.Add(num1, num2);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("AddStringData")]   
+        public void AddMSTestString()
+        {
+            string num1 = context.DataRow["numberOne"].ToString();
+            string num2 = context.DataRow["numberTwo"].ToString();
+            string expectedResult = context.DataRow["result"].ToString();
+            double actualResult = testCalculator.Add(num1, num2);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestCleanup]
         public void CleanupData()
         {
             testCalculator = null;
-            inputNumber1StringFormat = null;
-            inputNumber2StringFormat = null;
-            inputNumber1DoubleFormat = 0;
-            inputNumber2DoubleFormat = 0;
         }
     }
 }
