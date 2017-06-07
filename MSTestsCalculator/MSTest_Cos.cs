@@ -3,41 +3,52 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestsCalculator
 {
+
     [TestClass]
     public class MSTest_Cos
     {
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
+
         private CSharpCalculator.Calculator testCalculator;
-        private string inputNumberString;
-        private double inputNumberDouble;
 
         [TestInitialize]
         public void SetUpData()
         {
-            testCalculator = new CSharpCalculator.Calculator();
-            inputNumberString = "90.7";
-            inputNumberDouble = -90.7;
+            testCalculator = new CSharpCalculator.Calculator();            
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("CosStringData")] 
         public void CosMSTestString()
         {
-            double resultCos = testCalculator.Cos(inputNumberString);
-            Assert.AreEqual(Math.Cos(Convert.ToDouble(inputNumberString)), resultCos);
+            string input = context.DataRow["InputParameter"].ToString();
+            string expectedResult = context.DataRow["Result"].ToString();
+            double actualResult = testCalculator.Cos(input);
+            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("CosDoubleData")] 
         public void CosMSTestDouble()
         {
-            double resultCos = testCalculator.Cos(inputNumberDouble);
-            Assert.AreEqual(Math.Cos(inputNumberDouble), resultCos);
+            double input = Convert.ToDouble(context.DataRow["InputParameter"]);
+            double expectedResult = Convert.ToDouble(context.DataRow["Result"]);
+            double actualResult = testCalculator.Cos(input);
+            Assert.AreEqual(expectedResult, actualResult, 0.0001);
         }
 
         [TestCleanup]
         public void CleanupData()
         {
             testCalculator = null;
-            inputNumberDouble = 0;
-            inputNumberString = null;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace UnitTestsCalculator
         }
         
         [TestMethod]
-       
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
         [DataSource("AbsDoubleData")]    
         public void AbsMSTestDouble()
         {
