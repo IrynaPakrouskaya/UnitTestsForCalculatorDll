@@ -6,36 +6,56 @@ namespace UnitTestsCalculator
     [TestClass]
     public class MSTest_IsPositive
     {
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
+
         private CSharpCalculator.Calculator testCalculator;
-        private string numberString;
-        private double numberDouble;
 
         [TestInitialize]
         public void SetupData()
         {
             testCalculator = new CSharpCalculator.Calculator();
-            numberString = "-8.9";
-            numberDouble = -2.7;
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("IsPositiveStringData")] 
         public void IsPositiveMSTestString()
         {
-            Assert.IsFalse(testCalculator.isPositive(numberString));
+            string input = context.DataRow["InputParameter"].ToString();
+            bool expectedResult = Convert.ToBoolean(context.DataRow["Result"]);
+            bool actualResult = testCalculator.isPositive(input);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("IsPositiveDoubleData")] 
         public void IsPositiveMSTestDouble()
         {
-            Assert.IsFalse(testCalculator.isPositive(numberDouble));
+            double input = Convert.ToDouble(context.DataRow["InputParameter"]);
+            bool expectedResult = Convert.ToBoolean(context.DataRow["Result"]);
+            bool actualResult = testCalculator.isPositive(input);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))]
+        public void IsPositiveMSTestException()
+        {
+            string input = "test";
+            bool actualResult = testCalculator.isPositive(input);
         }
 
         [TestCleanup]
         public void CleanupData()
         {
             testCalculator = null;
-            numberString = null;
-            numberDouble = 0;
         }
     }
 }

@@ -102,4 +102,29 @@
 		<InputParameter>0</InputParameter>
 		<Result>false</Result>	
 	</IsNegativeMethodString>
+	<IsPositiveMethodDouble>
+		<InputParameter>0</InputParameter>
+		<Result>false</Result>	
+	</IsPositiveMethodDouble>
+	<IsPositiveMethodDouble>
+		<InputParameter>1,2</InputParameter>
+		<Result>true</Result>	
+	</IsPositiveMethodDouble>
+	<IsPositiveMethodDouble>
+		<InputParameter>-3</InputParameter>
+		<Result>false</Result>	
+	</IsPositiveMethodDouble>
+	<IsPositiveMethodString>
+		<InputParameter>0</InputParameter>
+		<Result>false</Result>	
+	</IsPositiveMethodString>
+	<IsPositiveMethodString>
+		<InputParameter>1,2</InputParameter>
+		<Result>true</Result>	
+	</IsPositiveMethodString>
+	<IsPositiveMethodString>
+		<InputParameter>-3</InputParameter>
+		<Result>false</Result>	
+	</IsPositiveMethodString>
+
 </DataSet>
