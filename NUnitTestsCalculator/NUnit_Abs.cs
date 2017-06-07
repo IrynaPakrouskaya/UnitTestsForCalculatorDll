@@ -29,12 +29,19 @@ namespace NUnitTestsCalculator
 
         [TestCase("-8.3", "8.3")]
         [TestCase("0", "0")]
-        [TestCase("2", "2")]
-        [TestCase("test", "NaN")]
+        [TestCase("2", "2")]        
         public void AbsNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Abs(num);
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);             
+        }
+
+        [Test] 
+        public void AbsNUnitTestException()
+        {
+            string input = "test";
+            Assert.That(() => testCalculator.Abs(input),
+                Throws.TypeOf<NotFiniteNumberException>());  
         }
 
         [TearDown]

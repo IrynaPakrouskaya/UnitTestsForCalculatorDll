@@ -19,8 +19,7 @@ namespace NUnitTestsCalculator
             testCalculator = new CSharpCalculator.Calculator();
         }
 
-        [TestCase(2.7, 1.6431)]
-        [TestCase(-3, Double.NaN)]
+        [TestCase(2.7, 1.6431)]        
         [TestCase(0, 0)]
         [TestCase(5, 2.236)]
         public void SqrtNUnitTestDouble(double num, double expectedResult)
@@ -29,16 +28,24 @@ namespace NUnitTestsCalculator
             Assert.AreEqual(expectedResult, actualResult, 0.0001);
         }
 
-        [TestCase("2.7", "1.6431")]
-        [TestCase("-3", "NaN")]
+        [TestCase("2.7", "1.6431")]     
         [TestCase("0", "0")]
-        [TestCase("5", "2.236")]
-        [TestCase("test", "NaN")]
+        [TestCase("5", "2.236")]        
         public void SqrtNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Sqrt(num);
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);            
         }
+
+
+        [TestCase("-3")]
+        [TestCase("test")]
+        public void SqrtNUnitTestException(string input)
+        {            
+            Assert.That(() => testCalculator.Sqrt(input),
+                Throws.TypeOf<NotFiniteNumberException>());
+        }
+
 
         [TearDown]
         public void CleanupData()

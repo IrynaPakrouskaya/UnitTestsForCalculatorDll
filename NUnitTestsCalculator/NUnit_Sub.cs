@@ -29,12 +29,20 @@ namespace NUnitTestsCalculator
 
         [TestCase("1.2", "2.3", "-1.1")]
         [TestCase("-3", "-2.5", "-0.5")]
-        [TestCase("8", "7", "1")]
-        [TestCase("test", "test", "NaN")]
+        [TestCase("8", "7", "1")]        
         public void SubNUnitTestString(string num1, string num2, string expectedResult)
         {
             double actualResult = testCalculator.Sub(num1, num2);           
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);           
+        }
+
+        [Test]
+        public void SinNUnitTestException()
+        {
+            string num1 = "test";
+            string num2 = "test";
+            Assert.That(() => testCalculator.Sub(num1, num2),
+                Throws.TypeOf<NotFiniteNumberException>());
         }
 
         [TearDown]

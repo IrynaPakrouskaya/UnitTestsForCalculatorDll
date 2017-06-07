@@ -237,4 +237,34 @@
 	<SqrtMethodException>
 		<InputParameter>test</InputParameter>			
 	</SqrtMethodException>
+	<SubMethodString>
+		<numberOne>1,2</numberOne>
+		<numberTwo>2,3</numberTwo>
+		<result>-1,1</result>
+	</SubMethodString>
+	<SubMethodString>
+		<numberOne>-3</numberOne>
+		<numberTwo>-2,5</numberTwo>
+		<result>-0,5</result>
+	</SubMethodString>
+	<SubMethodString>
+		<numberOne>8</numberOne>
+		<numberTwo>7</numberTwo>
+		<result>1</result>
+	</SubMethodString>
+	<SubMethodDouble>
+		<numberOne>1,2</numberOne>
+		<numberTwo>2,3</numberTwo>
+		<result>-1,1</result>
+	</SubMethodDouble>
+	<SubMethodDouble>
+		<numberOne>-3</numberOne>
+		<numberTwo>-2,5</numberTwo>
+		<result>-0,5</result>
+	</SubMethodDouble>
+	<SubMethodDouble>
+		<numberOne>8</numberOne>
+		<numberTwo>7</numberTwo>
+		<result>1</result>
+	</SubMethodDouble>
 </DataSet>

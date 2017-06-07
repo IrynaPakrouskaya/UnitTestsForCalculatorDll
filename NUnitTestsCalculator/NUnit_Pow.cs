@@ -18,8 +18,6 @@ namespace NUnitTestsCalculator
             testCalculator = new CSharpCalculator.Calculator();
         }
 
-        [TestCase(-8.3, 8.3, Double.NaN)]
-        [TestCase(0, 0, Double.NaN)]
         [TestCase(2, -2, 0.25)]
         [TestCase(5, 3, 125)]
         [TestCase(-6.5, 2, 42.25)]
@@ -29,16 +27,24 @@ namespace NUnitTestsCalculator
             Assert.AreEqual(expectedResult, actualResult, 0.0001);
         }
 
-        [TestCase("-8.3", "8.3", "NaN")]
-        [TestCase("0", "0", "NaN")]
         [TestCase("2", "-2", "0.25")]
         [TestCase("5", "3", "125")]
         [TestCase("-6.5", "2", "42.25")]
-        [TestCase("test", "test", "NaN")]
         public void PowNUnitTestString(string num, string pow, string expectedResult)
         {
             double actualResult = testCalculator.Pow(num, pow);
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);           
+        }
+
+        [Test]
+        [TestCase(-8.3, 8.3)]
+        [TestCase(0, 0)]
+        [TestCase("test", "test")]
+        public void PowNUnitTestException(string num, string pow)        
+        {
+            
+            Assert.That(() => testCalculator.Pow(num, pow),
+                Throws.TypeOf<NotFiniteNumberException>());
         }
 
         [TearDown]

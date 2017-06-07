@@ -29,12 +29,19 @@ namespace NUnitTestsCalculator
 
         [TestCase("1.2", "0.3624")]
         [TestCase("-3", "-0.9899")]
-        [TestCase("0", "1")]
-        [TestCase("test", "NaN")]
+        [TestCase("0", "1")]       
         public void CosNUnitTestString(string num, string expectedResult)
         {
             double actualResult = testCalculator.Cos(num);
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);         
+        }
+
+        [Test]
+        public void CosNUnitTestException()
+        {
+            string input = "test";            
+            Assert.That(() => testCalculator.Cos(input),
+                Throws.TypeOf<NotFiniteNumberException>());
         }
 
         [TearDown]

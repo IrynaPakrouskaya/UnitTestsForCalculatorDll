@@ -6,46 +6,58 @@ namespace UnitTestsCalculator
     [TestClass]
     public class MSTest_Sub
     {
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
         private CSharpCalculator.Calculator testCalculator;
-        private string inputNumber1StringFormat;
-        private string inputNumber2StringFormat;
-        private double inputNumber1DoubleFormat;
-        private double inputNumber2DoubleFormat;
 
         [TestInitialize]
         public void SetUpData()
         {
-            testCalculator = new CSharpCalculator.Calculator();
-            inputNumber1StringFormat = "2.1";
-            inputNumber2StringFormat = "-3";
-            inputNumber1DoubleFormat = 2.4;
-            inputNumber2DoubleFormat = -5;
+            testCalculator = new CSharpCalculator.Calculator();   
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("SubStringData")]  
         public void SubMSTestString()
         {
-            double actualResult = testCalculator.Sub(inputNumber1StringFormat, inputNumber2StringFormat);
-            double expectedResult = Convert.ToDouble(inputNumber1StringFormat) - Convert.ToDouble(inputNumber2StringFormat);
-            Assert.AreEqual(expectedResult, actualResult);
+            string num1 = context.DataRow["numberOne"].ToString();
+            string num2 = context.DataRow["numberTwo"].ToString();
+            string expectedResult = context.DataRow["result"].ToString();
+            double actualResult = testCalculator.Sub(num1, num2);
+            Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("SubDoubleData")]
         public void SubMSTestDouble()
         {
-            double actualResult = testCalculator.Sub(inputNumber1DoubleFormat, inputNumber2DoubleFormat);
-            double expectedResult = inputNumber1DoubleFormat - inputNumber2DoubleFormat;
-            Assert.AreEqual(expectedResult, actualResult);
+            double num1 = Convert.ToDouble(context.DataRow["numberOne"]);
+            double num2 = Convert.ToDouble(context.DataRow["numberTwo"]);
+            double expectedResult = Convert.ToDouble(context.DataRow["result"]);
+            double actualResult = testCalculator.Sub(num1, num2);
+            Assert.AreEqual(expectedResult, actualResult, 0.0001);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))]
+        public void SubMSTestException()
+        {
+            string num1 = "test";
+            string num2 = "test";
+            double actalResult = testCalculator.Sub(num1, num2);
         }
 
         [TestCleanup]
         public void ClenupData()
         {
             testCalculator = null;
-            inputNumber1StringFormat = null;
-            inputNumber2StringFormat = null;
-            inputNumber1DoubleFormat = 0;
-            inputNumber2DoubleFormat = 0;
         }
     }
 }

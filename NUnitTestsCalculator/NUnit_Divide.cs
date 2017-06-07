@@ -20,12 +20,20 @@ namespace NUnitTestsCalculator
 
         [TestCase(1.2, 2.3, 0.5217)]
         [TestCase(-3, -2.5, 1.2)]
-        [TestCase(7, 0, Double.NaN)]
         public void DivideNUnitTestDouble(double num1, double num2, double expectedResult)
         {
             double actualResult = testCalculator.Divide(num1, num2);
             Assert.AreEqual(expectedResult, actualResult, 0.0001);
-        }          
+        }
+
+        [Test]
+        public void DivideNUnitTestException()
+        {
+            double num1 = 7;
+            double num2 = 0;
+            Assert.That(() => testCalculator.Divide(num1, num2),
+                Throws.TypeOf<NotFiniteNumberException>());
+        }
         
         [TearDown]
         public void CleanupData()

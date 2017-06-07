@@ -29,14 +29,13 @@ namespace NUnitTestsCalculator
 
         [TestCase("1.2", false)]
         [TestCase("-3", true)]
-        [TestCase("0", false)]
-        [TestCase("test", Double.NaN)]
+        [TestCase("0", false)]      
         public void IsNegativeNUnitTestString(string num, bool expectedResult)
         {
             bool actualResult = testCalculator.isNegative(num);
             Assert.AreEqual(expectedResult, actualResult);
         }
-
+        
         [TearDown]
         public void CleanupData()
         {

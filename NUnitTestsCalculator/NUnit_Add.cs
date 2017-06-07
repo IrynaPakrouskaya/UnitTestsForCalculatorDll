@@ -27,12 +27,20 @@ namespace NUnitTestsCalculator
         }
 
         [TestCase("1.2", "2.3", "3.5")]
-        [TestCase("-3", "-2.5", "-5.5")]
-        [TestCase("test", "test", "NaN")]
+        [TestCase("-3", "-2.5", "-5.5")]       
         public void AddNUnitTestString(string num1, string num2, string expectedResult)
         {
             double actualResult = testCalculator.Add(num1, num2);         
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult, 0.0001);           
+        }
+
+        [Test]
+        public void AddNUnitTestException()
+        {
+            string num1 = "test";
+            string num2 = "test";
+            Assert.That(() => testCalculator.Add(num1, num2),
+                Throws.TypeOf<NotFiniteNumberException>());
         }
 
         [TearDown]
