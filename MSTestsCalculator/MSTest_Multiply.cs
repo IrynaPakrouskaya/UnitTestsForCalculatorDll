@@ -38,6 +38,5 @@ namespace UnitTestsCalculator
         {
             testCalculator = null;
         }
-
     }
 }
