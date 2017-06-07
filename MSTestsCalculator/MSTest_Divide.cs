@@ -32,7 +32,16 @@ namespace UnitTestsCalculator
             double expectedResult = Convert.ToDouble(context.DataRow["result"]);
             double actualresult = testCalculator.Divide(num1, num2);
             Assert.AreEqual(expectedResult, actualresult, 0.0001);
-        }   
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))] 
+        public void DivideMSTestException()
+        {
+            double num1 = 2.5;
+            double num2 = 0;
+            double actualResult = testCalculator.Divide(num1, num2);         
+        }
 
         [TestCleanup]
         public void CleanupData()

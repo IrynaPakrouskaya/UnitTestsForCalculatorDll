@@ -30,6 +30,7 @@ namespace NUnitTestsCalculator
         [TestCase("1.2", false)]
         [TestCase("-3", true)]
         [TestCase("0", false)]
+        [TestCase("test", Double.NaN)]
         public void IsNegativeNUnitTestString(string num, bool expectedResult)
         {
             bool actualResult = testCalculator.isNegative(num);

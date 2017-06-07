@@ -45,6 +45,14 @@ namespace UnitTestsCalculator
             Assert.AreEqual(Convert.ToDouble(expectedResult), actualResult);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))]        
+        public void AbsMethodException()
+        {
+            string input = "test";
+            double actualResult = testCalculator.Abs(input);
+        }
+
         [TestCleanup]
         public void CleanupData()
         {

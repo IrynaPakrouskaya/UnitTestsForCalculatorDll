@@ -45,6 +45,15 @@ namespace UnitTestsCalculator
             Assert.AreEqual(expectedResult, actualResult, 0.0001);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))] 
+        public void CosMSTestException()
+        {
+            string input = "test";
+            double actualResult = testCalculator.Cos(input);
+        }
+
+
         [TestCleanup]
         public void CleanupData()
         {

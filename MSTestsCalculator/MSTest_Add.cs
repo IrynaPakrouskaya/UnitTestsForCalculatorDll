@@ -46,6 +46,15 @@ namespace UnitTestsCalculator
             Assert.AreEqual(expectedResult, actualResult);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))]  
+        public void AddMSTestException()
+        {
+            string num1 = "test";
+            string num2 = "test";
+            double actalResult = testCalculator.Add(num1, num2);               
+        }
+
         [TestCleanup]
         public void CleanupData()
         {

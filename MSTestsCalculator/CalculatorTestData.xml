@@ -24,10 +24,6 @@
 		<InputParameter>5</InputParameter>
 		<Result>5</Result>
 	</AbsMethodString>
-		<AbsMethodString>
-		<InputParameter>test</InputParameter>
-		<Result>NaN</Result>
-	</AbsMethodString>
 	<AddMethodDouble>
 		<numberOne>1,2</numberOne>
 		<numberTwo>2,3</numberTwo>
@@ -47,11 +43,6 @@
 		<numberOne>-3</numberOne>
 		<numberTwo>-2,5</numberTwo>
 		<result>-5,5</result>
-	</AddMethodString>
-	<AddMethodString>		
-		<numberOne>test</numberOne>
-		<numberTwo>test</numberTwo>
-		<result>NaN</result>
 	</AddMethodString>		
 	<CosMethodDouble>
 		<InputParameter>1,2</InputParameter>
@@ -77,10 +68,6 @@
 		<InputParameter>0</InputParameter>
 		<Result>1</Result>	
 	</CosMethodString>
-	<CosMethodString>
-		<InputParameter>test</InputParameter>
-		<Result>NaN</Result>	
-	</CosMethodString>
 	<DivideMethodDouble>
 		<numberOne>1,2</numberOne>
 		<numberTwo>2,3</numberTwo>
@@ -91,9 +78,28 @@
 		<numberTwo>-2,5</numberTwo>
 		<result>1,2</result>
 	</DivideMethodDouble>
-	<DivideMethodDouble>
-		<numberOne>7</numberOne>
-		<numberTwo>0</numberTwo>
-		<result>NaN</result>
-	</DivideMethodDouble>
+	<IsNegativeMethodDouble>
+		<InputParameter>1,2</InputParameter>
+		<Result>false</Result>	
+	</IsNegativeMethodDouble>
+	<IsNegativeMethodDouble>
+		<InputParameter>-3</InputParameter>
+		<Result>true</Result>	
+	</IsNegativeMethodDouble>
+	<IsNegativeMethodDouble>
+		<InputParameter>0</InputParameter>
+		<Result>false</Result>	
+	</IsNegativeMethodDouble>
+	<IsNegativeMethodString>
+		<InputParameter>1,2</InputParameter>
+		<Result>false</Result>	
+	</IsNegativeMethodString>
+	<IsNegativeMethodString>
+		<InputParameter>-3</InputParameter>
+		<Result>true</Result>	
+	</IsNegativeMethodString>
+	<IsNegativeMethodString>
+		<InputParameter>0</InputParameter>
+		<Result>false</Result>	
+	</IsNegativeMethodString>
 </DataSet>

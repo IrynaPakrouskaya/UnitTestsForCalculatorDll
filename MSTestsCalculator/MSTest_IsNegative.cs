@@ -6,36 +6,55 @@ namespace UnitTestsCalculator
     [TestClass]
     public class MSTest_IsNegative
     {
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
         private CSharpCalculator.Calculator testCalculator;
-        private string numberString;
-        private double numberDouble;
 
         [TestInitialize]
         public void SetupData()
         {
             testCalculator = new CSharpCalculator.Calculator();
-            numberString = "-8.9";
-            numberDouble = -2.7;
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("IsNegativeStringData")] 
         public void IsNegativeMSTestString()
-        {                      
-            Assert.IsTrue(testCalculator.isNegative(numberString));
+        {
+            string input = context.DataRow["InputParameter"].ToString();
+            bool expectedResult = Convert.ToBoolean(context.DataRow["Result"]);
+            bool actualResult = testCalculator.isNegative(input);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("IsNegativeDoubleData")] 
         public void IsNegativeMSTestDouble()
         {
-            Assert.IsTrue(testCalculator.isNegative(numberDouble));
+            double input = Convert.ToDouble(context.DataRow["InputParameter"]);
+            bool expectedResult = Convert.ToBoolean(context.DataRow["Result"]);
+            bool actualResult = testCalculator.isNegative(input); 
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NotFiniteNumberException))] 
+        public void IsNegativeMSTestException()
+        {
+            string input = "test";
+            bool actualResult = testCalculator.isNegative(input);          
         }
 
         [TestCleanup]
         public void CleanupData()
         {
             testCalculator = null;
-            numberString = null;
-            numberDouble = 0;
         }
     }
 }
