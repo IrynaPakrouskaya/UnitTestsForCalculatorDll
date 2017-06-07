@@ -6,33 +6,38 @@ namespace UnitTestsCalculator
     [TestClass]
     public class MSTest_Divide
     {
-        private CSharpCalculator.Calculator testCalculator;   
-        private double number1Double;
-        private double number2Double;
+        private CSharpCalculator.Calculator testCalculator;
+        private TestContext context;
+
+        public TestContext TestContext
+        {
+            get { return context; }
+            set { context = value; }
+        } 
+
 
         [TestInitialize]
         public void SetUpData()
         {
-            testCalculator = new CSharpCalculator.Calculator();            
-            number1Double = 0.8;
-            number2Double = -10.9;
+            testCalculator = new CSharpCalculator.Calculator();
         }
 
         [TestMethod]
+        [DeploymentItem("C:\\Users\\Ирина\\Desktop\\TA\\lecture4_UnitTestingFrameworks\\UnitTestsForCalculatorProject\\MSTestsCalculator\\CalculatorTestData.xml")]
+        [DataSource("DivideDoubleData")] 
         public void DivideMSTestDouble()
         {
-            double resultDivide = testCalculator.Divide(number1Double, number2Double);
-            double expectedResult = number1Double/number2Double;
-            Assert.AreEqual(expectedResult, resultDivide);
+            double num1 = Convert.ToDouble(context.DataRow["numberOne"]);
+            double num2 = Convert.ToDouble(context.DataRow["numberTwo"]);
+            double expectedResult = Convert.ToDouble(context.DataRow["result"]);
+            double actualresult = testCalculator.Divide(num1, num2);
+            Assert.AreEqual(expectedResult, actualresult, 0.0001);
         }   
 
         [TestCleanup]
         public void CleanupData()
         {
             testCalculator = null;
-            number1Double = 0;
-            number2Double = 0;
         }
-
     }
 }

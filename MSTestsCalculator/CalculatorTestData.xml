@@ -81,5 +81,19 @@
 		<InputParameter>test</InputParameter>
 		<Result>NaN</Result>	
 	</CosMethodString>
-
+	<DivideMethodDouble>
+		<numberOne>1,2</numberOne>
+		<numberTwo>2,3</numberTwo>
+		<result>0,5217</result>
+	</DivideMethodDouble>
+	<DivideMethodDouble>
+		<numberOne>-3</numberOne>
+		<numberTwo>-2,5</numberTwo>
+		<result>1,2</result>
+	</DivideMethodDouble>
+	<DivideMethodDouble>
+		<numberOne>7</numberOne>
+		<numberTwo>0</numberTwo>
+		<result>NaN</result>
+	</DivideMethodDouble>
 </DataSet>
