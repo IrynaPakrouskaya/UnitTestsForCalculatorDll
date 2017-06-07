@@ -126,5 +126,20 @@
 		<InputParameter>-3</InputParameter>
 		<Result>false</Result>	
 	</IsPositiveMethodString>
+	<MultiplyMethodDouble>
+		<numberOne>1,2</numberOne>
+		<numberTwo>2,3</numberTwo>
+		<result>2,76</result>
+	</MultiplyMethodDouble>
+	<MultiplyMethodDouble>
+		<numberOne>-3</numberOne>
+		<numberTwo>-2,5</numberTwo>
+		<result>7,5</result>
+	</MultiplyMethodDouble>
+	<MultiplyMethodDouble>
+		<numberOne>-3</numberOne>
+		<numberTwo>2,5</numberTwo>
+		<result>-7,5</result>
+	</MultiplyMethodDouble>
 
 </DataSet>
